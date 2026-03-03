@@ -1,0 +1,8 @@
+ultralytics==8.4.19
+torch
+opencv-python
+albumentations
+pyyaml
+matplotlib
+tqdm
+pandas
