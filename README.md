@@ -1,4 +1,3 @@
-Here is a **clean and simple README.md** suitable for your **minimal GitHub structure** (notebook + requirements + README). You can copy it directly.
 
 ```markdown
 # Robust Object Detection with YOLOv8 (ROAD4)
