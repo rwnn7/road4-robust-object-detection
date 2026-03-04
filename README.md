@@ -1,87 +1,110 @@
-# Robust Road Object Detection under Adverse Conditions
+Here is a **clean and simple README.md** suitable for your **minimal GitHub structure** (notebook + requirements + README). You can copy it directly.
 
-## Overview
+```markdown
+# Robust Object Detection with YOLOv8 (ROAD4)
 
-This project implements a YOLOv8-based object detector for four road-relevant classes:
+This project trains a **baseline YOLOv8 object detection model** and improves robustness under **adverse visual conditions** using synthetic data augmentation and fine-tuning.
 
-- Person  
-- Car  
-- Truck  
-- Traffic Light  
+The dataset is derived from a small subset of **COCO128**, keeping only four classes:
+- person
+- car
+- truck
+- traffic light
 
-The objective is to evaluate and improve model robustness under adverse visual conditions such as low illumination, noise, and motion blur.
-
----
-
-## Methodology
-
-1. **Baseline Model**
-   - YOLOv8n (pretrained)
-   - 640×640 input size
-   - 50 epochs
-   - Default training configuration
-
-2. **Synthetic Adverse Test Set**
-   A degraded version of the clean test set was generated using:
-   - Brightness/contrast shifts  
-   - Gamma correction  
-   - Random shadows  
-   - Gaussian noise  
-   - Motion blur  
-
-3. **Robust Model (robust_v2)**
-   Trained with stronger augmentations:
-   - HSV color shifts  
-   - Translation & scaling  
-   - Mosaic & Mixup  
-   - Horizontal flipping  
+The goal is to evaluate how well the model performs on **clean images vs adverse conditions**.
 
 ---
 
-## Results
+# Project Structure
 
-| Model     | mAP50 (Clean) | mAP50 (Adverse) |
-|------------|---------------|-----------------|
-| Baseline   | 0.4159        | 0.3023          |
-| Robust_v2  | 0.4078        | 0.2655          |
+```
 
-Both models show performance degradation under adverse conditions.  
-The robustness-enhanced model maintains comparable clean performance while slightly improving localization quality (mAP50-95).
+AI_Assessment/
+│
+├── robust_yolov8_road4.ipynb
+├── README.md
+└── requirements.txt
 
-Full analysis is available in the report.
+````
+
+- **robust_yolov8_road4.ipynb**  
+  Full pipeline including dataset preparation, training, evaluation, and robustness analysis.
+
+- **requirements.txt**  
+  Python dependencies required to run the notebook.
+
+- **README.md**  
+  Project description and instructions.
 
 ---
 
-## How to Run
+# Setup
 
 Install dependencies:
 
+```bash
 pip install -r requirements.txt
-
-Then open and run:
-
-notebook.ipynb
-
-The notebook includes:
-- Training (baseline & robust)
-- Adverse test generation
-- Evaluation
-- Visualization
+````
 
 ---
 
-## Environment
+# How to Run
 
-- Python 3.9  
-- PyTorch 2.6  
-- Ultralytics YOLOv8  
-- Trained on Apple M2 CPU  
+Open the notebook and run all cells:
+
+```
+robust_yolov8_road4.ipynb
+```
+
+The notebook will automatically:
+
+1. Load the COCO128 dataset.
+2. Create the **ROAD4 clean dataset** containing the selected classes.
+3. Generate an **adverse test set** using image degradations such as:
+
+   * brightness and contrast changes
+   * gamma shifts
+   * noise
+   * motion blur
+   * JPEG compression
+4. Train a **baseline YOLOv8 model**.
+5. Fine-tune a **robust model** using augmented training data.
+6. Evaluate both models on:
+
+   * clean test data
+   * adverse test data.
+7. Compare performance using:
+
+   * Precision
+   * Recall
+   * mAP50
+   * mAP50-95
+
+The notebook also generates **plots and comparison tables** showing robustness differences between the models.
 
 ---
 
-## Report
+# Reproducibility
 
-See:  
-`Road_Object_Detection_Robustness_Report.docx`
+The experiment uses a **fixed random seed** and deterministic settings where possible to reduce run-to-run variation.
 
-For detailed methodology, evaluation analysis, and future work.
+---
+
+# Libraries Used
+
+* Ultralytics YOLOv8
+* PyTorch
+* Albumentations
+* NumPy
+* Pandas
+* OpenCV
+* Matplotlib
+
+---
+
+# Notes
+
+The dataset and training outputs are **not stored in the repository**.
+They are automatically generated when running the notebook.
+
+
