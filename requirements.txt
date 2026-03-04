@@ -1,8 +1,9 @@
 ultralytics==8.4.19
-torch
-opencv-python
-albumentations
+torch==2.6.0
+numpy
+pandas
 pyyaml
+opencv-python
 matplotlib
 tqdm
-pandas
+albumentations
