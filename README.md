@@ -12,19 +12,6 @@ The dataset is derived from a small subset of **COCO128**, keeping only four cla
 
 The goal is to evaluate how well the model performs on **clean images vs adverse conditions**.
 
----
-
-# Project Structure
-
-```
-
-AI_Assessment/
-│
-├── robust_yolov8_road4.ipynb
-├── README.md
-└── requirements.txt
-
-````
 
 - **robust_yolov8_road4.ipynb**  
   Full pipeline including dataset preparation, training, evaluation, and robustness analysis.
